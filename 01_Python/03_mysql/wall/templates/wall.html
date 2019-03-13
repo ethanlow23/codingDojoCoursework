@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            .top * {
+                display: inline;
+            }
+            .message_post {
+                margin-left: 10px;
+            }
+            .comments {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='top'>
+            <h2>CodingDojo Wall</h2>
+            <p>Welcome {{ session['first_name']}}</p>
+            <form action='/logout' method='post'>
+                <input type='submit' value='Log Off'>
+            </form>
+        </div>
+        <form action='/messages' method='post'>
+            <h3>post a message:</h3>
+            <textarea name='message'></textarea>
+            <input type='submit' value='Post a message'>
+        </form>
+        {% for x in session['msg'] %}
+            <h4>{{ x['first_name'] }} {{ x['last_name'] }} {{ x['updated_at'] }}</h4>
+            <p class='message_post'>{{ x['message'] }}</p>
+            <div class='comments'>
+                {% for i in session['comment'] %}
+                    {% if i['id'] == x['id'] %}
+                    <h4>{{ i['first_name'] }} {{ i['last_name'] }} {{ i['updated_at'] }}</h4>
+                    <p>{{ i['comment'] }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <form action='/comments' method='post'>
+                <p style='font-weight: bold;'>Post a comment</p>
+                <textarea name='comment'></textarea>
+                <input type='hidden' name='msg_id' value='{{ x["id"] }}'>
+                <input type='submit' value='Post a comment'>
+            </form>
+        {% endfor %}
+    </body>
+</html>

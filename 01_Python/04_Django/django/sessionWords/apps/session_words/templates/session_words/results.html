@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% for x in request.session.word %}
+            <p style='font-size: 50px; color: {{request.session.color}}; font-weight: {{request.session.bold}}'>{{ x }}</p>
+        {% endfor %}
+    </body>
+</html>

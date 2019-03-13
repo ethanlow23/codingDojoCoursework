@@ -1,0 +1,25 @@
+.body, .right_body {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+}
+.body{
+    width: 500px;
+}
+.chat_board {
+    width: 350px;
+    height: 400px;
+    overflow: scroll;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+.current_users {
+    width: 200px;
+    height: 450px;
+    border: 2px solid black;
+    padding-left: 10px;
+}
+textarea {
+    width: 300px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('button').click(function() {
+				$('tbody').append(
+					'<tr><td>' + document.getElementById('firstName').value + '</td><td>' + document.getElementById('lastName').value + '</td><td>' + document.getElementById('email').value + '</td><td>' + document.getElementById('phone').value + '</td></tr>'
+				)
+			})
+		})
+	</script>
+	<style>
+		table {
+			border: 1px solid black;
+		}
+		td {
+			padding: 5px 20px;
+		}
+		div {
+			display: block;
+		}
+		p, input {
+			display: inline-block;
+		}
+		form {
+			width: 300px;
+			text-align: right;
+		}
+		h1 {
+			border-bottom: 2px solid black;
+			width: 300px; 
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Email Address</td>
+				<td>Contact #</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<h1>Add User</h1>
+	<form>
+		<div>
+			<p>First Name:</p>
+			<input type='textbox' value='First Name' id='firstName'>
+		</div>
+		<div>
+			<p>Last Name:</p>
+			<input type='textbox' value='Last Name' id='lastName'>
+		</div>
+		<div>
+			<p>Email Address</p>
+			<input type='textbox' value='Email Address' id='email'>
+		</div>
+		<div>
+			<p>Contact No.</p>
+			<input type='textbox' value='Phone #' id='phone'>
+		</div>
+		<button type='button'>Add User</button>
+	</form>
+</body>
+</html>

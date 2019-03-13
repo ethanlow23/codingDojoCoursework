@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <meta charset="UTF-8">
+    <body>
+        <h2>Welcomem to Quoting Dojo</h2>
+        <%- JSON.stringify(messages) %>
+        <% if (messages.quotes) { %>
+            <% for(var x of messages.quotes) { %>
+                <p><%= x %></p>
+            <% } %>
+        <% } %>
+        <form action='/quotes' method='post'>
+            <p>Your Name: <input type='text' name='name'></p>
+            <p>Your Quote: <textarea name='quote'></textarea></p>
+            <input type='submit' value='Add my quote!'>
+        </form>
+        <a href='/quotes'><button>Skip to Quotes</button></a>
+    </body>
+</html>

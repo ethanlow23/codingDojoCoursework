@@ -1,0 +1,14 @@
+<html>
+    <head></head>
+    <meta charset="UTF-8">
+    <body>
+        <% for(var i=0; i<animals.length; i++){ %>
+            <p><a href='/animals/<%= animals[i]._id %>'><%= animals[i].name %></a></p>
+            <a href='/animals/edit/<%= animals[i]._id %>'><button>Edit</button></a>
+            <form action='/animals/destroy/<%= animals[i]._id %>' method='post'>
+                <input type='submit' value='Delete'>
+            </form>
+        <% } %>
+        <p><a href='/animals/new'><button>Add</button></a></p>
+    </body>
+</html>

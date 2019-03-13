@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type ="text/javascript">
+            $(document). ready(function (){
+                var socket = io();
+                $(document).on('click', '.submit', function(e){
+                    e.preventDefault();
+                    var name = $('.name').val();
+                    var location = $('.location').val();
+                    var language = $('.language').val();
+                    var comment = $('.comment').val();
+                    socket.emit('posting_form', {name: name, location: location, language: language, comment: comment});
+                });
+                socket.on('updated_message', function(data){
+                    $('.body').append('<p>'+ data.msg + '</p>');
+                });
+                socket.on('random_number', function(data){
+                    $('.body').append('<p>' + data.rand + '</p>');
+                });
+            });
+        </script>
+    </head>
+    <meta charset="UTF-8">
+    <body>
+        <div class="body"></div>
+        <form>
+            <label>Your Name</label>
+            <input type="text" name="name" class="name">
+            <label>Dojo Location</label>
+            <select name="location" class="location">
+                <option>Mountain View</option>
+            </select>
+            <label>Favorite Language</label>
+            <select name="language" class="language">
+                <option>Javascript</option>
+            </select>
+            <label>Comment (optional)</label>
+            <textarea name="comment" class="comment"></textarea>
+            <input type="submit" value="Submit" class='submit'>
+        </form>
+    </body>
+</html>

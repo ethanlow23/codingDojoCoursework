@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            function print_students(lst){
+                for(var i=0; i<lst.length; i++){
+                    console.log("Name: " + lst[i].name + ", Cohort: " + lst[i].cohort);
+                };
+            };
+            let students = [
+                {name: 'Remy', cohort: 'Jan'},
+                {name: 'Genevieve', cohort: 'March'},
+                {name: 'Chuck', cohort: 'Jan'},
+                {name: 'Osmund', cohort: 'June'},
+                {name: 'Nikki', cohort: 'June'},
+                {name: 'Boris', cohort: 'June'}
+            ];
+            print_students(students);
+
+            function print_users(lst){
+                employees = lst.employees;
+                managers = lst.managers;
+                console.log("EMPLOYEES");
+                for(var i=0; i<employees.length; i++){
+                    console.log((i+1) + " - " + employees[i].last_name.toUpperCase() + ", " + employees[i].first_name.toUpperCase() + " - " + (employees[i].first_name.length + employees[i].last_name.length))
+                };
+                console.log("MANAGERS");
+                for(var i=0; i<managers.length; i++){
+                    console.log((i+1) + " - " + managers[i].last_name.toUpperCase() + ", " + managers[i].first_name.toUpperCase() + " - " + (managers[i].first_name.length + managers[i].last_name.length))
+                };
+            };
+            let users = {
+                employees: [
+                    {'first_name':  'Miguel', 'last_name' : 'Jones'},
+                    {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+                    {'first_name' : 'Nora', 'last_name' : 'Lu'},
+                    {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+                ],
+                managers: [
+                {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+                {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+                ]
+            };
+            print_users(users);
+        </script>
+    </body>
+</html>

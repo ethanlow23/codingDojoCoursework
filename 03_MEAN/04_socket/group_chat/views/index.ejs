@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='group_chat.css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var socket = io();
+                socket.on('all_messages', function(data){
+                    for(var i=0; i<data.messages.length; i++){
+                        $('.chat_board').append('<p>' + data.messages[i].username + ': ' + data.messages[i].msg + '</p>');
+                    };
+                });
+                socket.on('current_users', function(data){
+                    for(var i=0; i<data.current_users.length; i++){
+                        $('.current_users').append('<div id=' + data.current_users[i].id + '><p>' + data.current_users[i].username + '</p></div>');
+                    };
+                });
+                var username = prompt('Your Username');
+                socket.emit('got_a_new_user', {username});
+                socket.on('new_user', function(data){
+                    $('.current_users').append('<div id=' + data.new_user.id + '><p>' + data.new_user.username + '</p></div>');
+                    $('.header').html('<h4>Welcome ' + data.new_user.username + '</h4>');
+                });
+                socket.on('disconnect_user', function(data){
+                    $('#' + data.id).remove();
+                });
+                $(document).on('click', '.submit', function(e){
+                    e.preventDefault();
+                    var message = $('.message').val();
+                    socket.emit('new_msg', {message});
+                });
+                socket.on('post_msg', function(data){
+                    $('.chat_board').append('<p>' + data.msg_data.username + ': ' + data.msg_data.msg + '</p>');
+                });
+            });
+        </script>
+    </head>
+    <meta charset="UTF-8">
+    <body>
+        <div class='body'>
+            <div class='header'></div>
+            <h3>Conversation Board</h3>
+            <div class='chat_board'></div>
+            <form>
+                <textarea class='message'>enter your message here</textarea>
+                <input type='submit' value='Send' class='submit'>
+            </form>
+        </div>
+        <div class='right_body'>
+            <h4>Currently Online</h4>
+            <div class='current_users'></div>
+        </div>
+    </body>
+</html>

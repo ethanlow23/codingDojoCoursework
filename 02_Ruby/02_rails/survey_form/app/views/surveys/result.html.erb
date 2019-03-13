@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3><%= flash[:success] %></h3>
+        <h3>Submitted Information</h3>
+        <p>Your Name: <%= session[:survey]["name"] %></p>
+        <p>Your Location: <%= session[:survey]["location"] %></p>
+        <p>Your Language: <%= session[:survey]["language"] %></p>
+        <p>Your Comment: <%= session[:survey]["comment"] %></p>
+        <a href='/'>Go Back</a>
+    </body>
+</html>

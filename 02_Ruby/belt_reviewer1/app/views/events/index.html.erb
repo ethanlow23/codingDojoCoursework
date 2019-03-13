@@ -1,0 +1,80 @@
+<a href="users/<%= current_user.id %>">Edit my profile</a>
+<h3>Welcome, <%= current_user.first_name %></h3>
+<h3>Here are some events at your state</h3>
+<table>
+    <tr class="table_head">
+        <td>Name</td>
+        <td>Date</td>
+        <td>Location</td>
+        <td>Host</td>
+        <td>Action/Status</td>
+    </tr>
+    <% @events.each do |event| %>
+        <% if event.state == current_user.state %>
+            <tr>
+                <td><a href="events/<%= event.id %>"><%= event.name %></a></td>
+                <td><%= event.date %></td>
+                <td><%= event.state %></td>
+                <td><%= event.user.first_name %></td>
+                <td>
+                    <% if event.user.id == current_user.id %>
+                        <a href="/events/<%= event.id %>/edit">Edit</a> <a href="/events/<%= event.id %>/destroy" data-method="delete">Delete</a>
+                    <% end %>
+                    <% if current_user.events_joined_ids.include? event.id %>
+                        <p>Joining   <a href="/events/<%= event.id %>/unjoin" data-method="post">Cancel</a></p>
+                    <% end %>
+                    <% if event.user.id != current_user.id && !(current_user.events_joined_ids.include? event.id) %>
+                        <a href="/events/<%= event.id %>/join" data-method="post">Join</a>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    <% end %>
+</table>
+<h3>Here are some of the events on other states</h3>
+<table>
+    <tr class="table_head">
+        <td>Name</td>
+        <td>Date</td>
+        <td>Location</td>
+        <td>Host</td>
+        <td>Action/Status</td>
+    </tr>
+    <% @events.each do |event| %>
+        <% unless event.state == current_user.state %>
+            <tr>
+                <td><a href="events/<%= event.id %>"><%= event.name %></a></td>
+                <td><%= event.date %></td>
+                <td><%= event.state %></td>
+                <td><%= event.user.first_name %></td>
+                <td>
+                    <% if event.user.id == current_user.id %>
+                        <a href="/events/<%= event.id %>/edit">Edit</a> <a href="/events/<%= event.id %>/destroy" data-method="delete">Delete</a>
+                    <% end %>
+                    <% if current_user.events_joined_ids.include? event.id %>
+                        <p>Joining   <a href="/events/<%= event.id %>/unjoin" data-method="post">Cancel</a></p>
+                    <% end %>
+                    <% if event.user.id != current_user.id && !(current_user.events_joined_ids.include? event.id) %>
+                        <a href="/events/<%= event.id %>/join" data-method="post">Join</a>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    <% end %>
+</table>
+<h3>Add Event</h3>
+<form action="/events/new" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="name">Name</label>
+    <input type="text" name="event[name]" id="name">
+    <label for="date">Date</label>
+    <input type="date" name="event[date]" id="date">
+    <label for="city">Location</label>
+    <input type="text" name="event[city]" id="city">
+    <select name="event[state]">
+        <option>WA</option>
+        <option>CA</option>
+        <option>NY</option>
+    </select>
+    <input type="submit" value="Add Event">
+</form>

@@ -1,0 +1,17 @@
+#wrapper {
+    width: 220px;
+}
+div p {
+    display: inline-block;
+}
+button {
+    display: block;
+    margin-top: 10px;
+}
+textarea {
+    width: 200px;
+    height: 100px;
+}
+select {
+    width: 100px;
+}

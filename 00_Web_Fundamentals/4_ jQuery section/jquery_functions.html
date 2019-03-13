@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.click').click(function() {
+				alert('clicked')
+			})
+			$('.hide').click(function() {
+				$('.hide_button p').hide()
+			})
+			$('.show').click(function() {
+				$('.hide_button p').show()
+			})
+			$('.toggle').click(function() {
+				$('.toggle_button p').toggle()
+			})
+			$('.slideDown').click(function() {
+				$('.down_button p').slideDown()
+			})
+			$('.slideUp').click(function() {
+				$('.down_button p').slideUp()
+			})
+			$('.slideToggle').click(function() {
+				$('.down_button p').slideToggle()
+			})
+			$('.fadeIn').click(function() {
+				$('.fadeIn_button p').fadeIn()
+			})
+			$('.fadeOut').click(function() {
+				$('.fadeIn_button p').fadeOut()
+			})
+			$('.addClass').click(function() {
+				$('.addClass_button p').addClass('literally')
+			})
+			$('.before').click(function() {
+				$('.before').before('<p>added paragraph with before function</p>')
+			})
+			$('.after').click(function() {
+				$('.after').after('</p>added paragraph with after function</p>')
+			})
+			$('.append').click(function() {
+				$('.append').append('<p>text to button with append function</p>')
+			})
+			$('.html').click(function() {
+				$('.html').html('<p>text to html button with html function</p>')
+			})
+			$('.attr').click(function() {
+				$('.attr').attr('style', 'height: 20px')
+			})
+			$('.val').click(function() {
+				var value = $('.val_button p').val()
+				console.log(value)
+			})
+			$('.text').click(function() {
+				$('.text_button p').text('changed text with text button')
+			})
+			$('.data').click(function() {
+				$('.data_div').data('attached', 'alert through data function')
+			})
+			$('.data').click(function() {
+				alert($('.data_div').data('attached'))
+			})
+		})
+	</script>
+	<style>
+		button {
+			display: block;
+			width: 85px;
+			margin-bottom: 5px;
+		}
+		.hide_button button, .hide_button p, .toggle_button button, .toggle_button p, .fadeIn_button button, .fadeIn_button p, .addClass_button button, .addClass_button p, .text_button button, .text_button p, .val_button button, .val_button p {
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<button class='click'>click</button>
+	<div class='hide_button'>
+		<button class='hide'>hide</button>
+		<p>click hide to hide me and show to show me</p>
+	</div>
+	<button class='show'>show</button>
+	<div class='toggle_button'>
+		<button class='toggle'>toggle</button>
+		<p>I will toggle in and out</p>
+	</div>
+	<div class='down_button'>
+		<button class='slideDown'>slide down</button>
+		<p>slide me up and down</p>
+	</div>
+	<button class='slideUp'>slide up</button>
+	<button class='slideToggle'>slide toggle</button>
+	<div class='fadeIn_button'>
+		<button class='fadeIn'>fade in</button>
+		<p>this will fade in and out</p>
+	</div>
+	<button class='fadeOut'>fade out</button>
+	<div class='addClass_button'>
+		<button class='addClass'>add class</button>
+		<p>this button adds a class but you won't see it</p>
+	</div>
+	<button class='before'>before</button>
+	<button class='after'>after</button>
+	<button class='append'>append</button>
+	<button class='html'>html</button>
+	<button class='attr' style='height: 50px'>attr</button>
+	<div class='val_button'>
+		<button class='val'>val</button>
+		<p>get this value with val button</p>
+	</div>
+	<div class='text_button'>
+		<button class='text'>text</button>
+		<p>change text with text button</p>
+	</div>
+	<div class='data_button'>
+		<button class='data'>data</button>
+		<div class='data_div'></div>
+	</div>
+</body>
+</html>

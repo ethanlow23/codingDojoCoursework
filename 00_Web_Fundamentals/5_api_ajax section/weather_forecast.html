@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+    		$('form').submit(function() {
+	        	// your code here (build up your url)
+	        	var location = $('.location').val()
+	        	var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '&&appid=1e899c77a17d495ebacd8a270c00846e'
+	        	$.get(url, function(res) {
+	            	// your code here
+	            	var fahrenheit = (res.main.temp) * 1.8 - 459.67
+	            	var html_str = '<h1>' + location + '</h1>'
+	            	html_str += '<p>Temperature: ' + Math.floor(fahrenheit) + '°F</p>'
+	            	$('.body').html(html_str)
+	        	}, 'json');
+	        	// don't forget to return false so the page doesn't refresh
+	        	return false;
+    		});
+		});
+	</script>
+</head>
+<body>
+	<form>
+		<input type='text' value='Enter Location' class='location'>
+		<input type='submit' value='Search Weather'>
+	</form>
+	<div class='body'></div>
+</body>
+</html>

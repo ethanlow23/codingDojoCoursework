@@ -1,0 +1,155 @@
+* {
+	padding: 0;
+	margin:0;
+}
+
+.wrapper {
+	width: 970px;
+}
+
+.top {
+	background: linear-gradient(#F2F2F2, #FEFEFE, #F2F2F2);
+	padding: 13px;
+}
+
+.top h1 {
+	display: inline;
+	font-family: "comic sans MS";
+}
+
+.top p {
+	display: inline;
+	font-size: 20px;
+	font-weight: bold;
+	float: right;
+	padding-top: 10px
+}
+
+.top_info {
+	width: 100%;
+	text-align: right;
+}
+
+.content {
+	background: linear-gradient(to right, #1C0C10, #4F3B43, #1C0C10);
+	padding: 20px;
+}
+
+h2, .technologies h3 {
+	color: white;
+}
+
+.main_picture {
+	height: 260px;
+	width: 400px;
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	border: 5px solid gray;
+}
+
+.aboutme h2 {
+	background: linear-gradient(#A6A5AC, #8A8895, #A6A5AC);
+	padding: 8px;
+}
+
+.aboutme {
+	display: inline-block;
+	vertical-align: top;
+	background: linear-gradient(to right, #FFFEFF ,#DBCCD9);
+	width: 450px;
+	height: 260px;
+	margin-left: 20px;
+	padding-bottom: 10px;
+}
+
+.aboutme p, .aboutme a {
+	padding: 10px;
+}
+
+a {
+	color: black;
+}
+
+.lamode h2, .contacts h2, .fiveEleven h2 {
+	background: linear-gradient(#A6A5AC, #8A8895, #A6A5AC);
+	padding: 8px;
+}
+
+.lamode img, .contacts img, .fiveEleven img {
+	height: auto;
+	width: auto;
+	max-height: 230px;
+	max-width: 279px;
+}
+
+.lamode p, .contacts p, .fiveEleven p {
+	background: linear-gradient(to right, #FFFEFF ,#DBCCD9);
+	height: 180px;
+	padding: 10px;
+}
+
+.lamode, .contacts, .fiveEleven {
+	display: inline-block;
+	width: 279px;
+	vertical-align: top;
+	margin-left: 20px;
+}
+
+.bottom1 img, .bottom2 img, .bottom3 img {
+	height: 40px;
+	width: 40px;
+	margin: 5px;
+}
+
+.bottom1, .bottom2, .bottom3 {
+	display: inline-block;
+	width: 279px;
+	vertical-align: top;
+	margin-left: 20px;
+}
+
+.technologies {
+	background: linear-gradient(#A6A5AC, #8A8895, #A6A5AC);
+	padding: 8px;
+}
+
+button {
+	display: block;
+	margin: 0 auto;
+	background-color: #407D61;
+	color: white;
+	padding: 7px;
+	border-radius: 10px;
+	font-weight: bold;
+	border: none;
+}
+
+.social_media1, .social_media2, .social_media3 {
+	background: linear-gradient(to right, #FFFEFF ,#DBCCD9);
+	padding-bottom: 10px;
+}
+
+.bottom img {
+	height: 20px;
+	width: 20px;
+}
+
+.contact1, .contact2, .contact3, .contact4 {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bottom {
+	background: linear-gradient(#F2F2F2, #FEFEFE, #F2F2F2);
+	padding: 10px;
+}
+
+.bottom p {
+	padding-bottom: 10px;
+}
+
+.bottom * {
+	text-align: center;
+}

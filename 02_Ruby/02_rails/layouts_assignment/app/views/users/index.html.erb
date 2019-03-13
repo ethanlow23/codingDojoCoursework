@@ -1,0 +1,16 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% content_for :left_column %>
+<% content_for :right_column %>
+<form action='/create' method='post'>
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+    <h2>New User</h2>
+    <p>First Name</p>
+    <input type='text' name='first_name'>
+    <p>Last Name</p>
+    <input type='text' name='last_name'>
+    <p>Favorite Language</p>
+    <input type='text' name='language'>
+    <input type='submit' value='Submit'>
+    <a href='posts/index'>All Posts</a>
+</form>

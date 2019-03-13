@@ -1,0 +1,19 @@
+<a href="/events">Events Dashboard</a>
+<h3>Edit Your Profile</h3>
+<form action="/users/<%= current_user.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="first_name">First Name</label>
+    <input type="text" name="user[first_name]" id="first_name" value="<%= current_user.first_name %>">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="user[last_name]" id="last_name" value="<%= current_user.last_name %>">
+    <label for="email">Email</label>
+    <input type="text" name="user[email]" id="email" value="<%= current_user.email %>">
+    <label for="city">Location</label>
+    <input type="text" name="user[city]" id="city" value="<%= current_user.city %>">
+    <select name="user[state]">
+        <option>WA</option>
+        <option>CA</option>
+        <option>NY</option>
+    </select>
+    <input type="submit" value="Update Records">
+</form>

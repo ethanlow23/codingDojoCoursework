@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action='/surveys/process' method='post'>
+            {% csrf_token %}
+            <p>Your name:</p>
+            <input type='text' name='name'>
+            <select name='location'>
+                <option>San Jose</option>
+                <option>San Francisco</option>
+                <option>Oakland</option>
+            </select>
+            <select name='language'>
+                <option>Python</option>
+                <option>English</option>
+                <option>Chinese</option>
+            </select>
+            <p>Comment (optional)</p>
+            <textarea name='comment'></textarea>
+            <input type='submit' value='Submit'>
+        </form>
+    </body>
+</html>

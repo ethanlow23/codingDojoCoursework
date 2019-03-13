@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <meta charset="UTF-8">
+    <body>
+        <h3>Add new animal</h3>
+        <% if (messages.animals) { %>
+            <% for(var x of messages.animals) { %>
+                <p><%= x %></p>
+            <% } %>
+        <% } %>
+        <form action='/animals' method='post'>
+            <input type='text' name='name'>
+            <input type='submit' value='Add'>
+        </form>
+    </body>
+</html>

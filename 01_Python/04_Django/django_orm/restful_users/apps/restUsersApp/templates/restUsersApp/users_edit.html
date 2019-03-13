@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2></h2>
+        <form action='/users/{{user.id}}/update' method='post'>
+            {% csrf_token %}
+            <p>First name:</p>
+            <input type='text' name='first_name'>
+            <p>Last name:</p>
+            <input type='text' name='last_name'>
+            <p>Email:</p>
+            <input type='text' name='email'>
+            <input type='submit' value='Update'>
+        </form>
+        <p><a href=''>Show</a> | <a href=''>Go Back</a></p>
+    </body>
+</html>

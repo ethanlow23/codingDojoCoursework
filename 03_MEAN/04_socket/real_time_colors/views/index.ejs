@@ -1,0 +1,24 @@
+<html>
+    <meta charset="UTF-8">
+    <head></head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io();
+            $(document).on('click', 'button', function(e){
+                e.preventDefault();
+                var color = $(this).html();
+                socket.emit('clicked', {color});
+            });
+            socket.on('updated', function(data){
+                $('body').css('background-color', data.color);
+            });
+        });
+    </script>
+    <body>
+        <button class='green'>Green</button>
+        <button class='blue'>Blue</button>
+        <button class='pink'>Pink</button>
+    </body>
+</html>

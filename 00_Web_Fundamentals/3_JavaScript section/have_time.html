@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		var HOUR = 7;
+		var MINUTE = 15;
+		var PERIOD = 'PM';
+		if (PERIOD == 'AM') {
+			var phrase = 'in the morning';
+		}
+		else {
+			phrase = 'in the evening';
+		}
+		if (MINUTE >= 30) {
+			HOUR += 1;
+			console.log("it's almost " + HOUR + " " + phrase);
+		}
+		else {
+			console.log("it's just after " + HOUR + " " + phrase);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

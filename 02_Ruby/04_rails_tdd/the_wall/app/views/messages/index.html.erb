@@ -1,0 +1,53 @@
+<head>
+    <style>
+        .header {
+            border-bottom: 1px solid black;
+        }
+        .header p, .header h3, .header a {
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class='header'>
+        <p>CodingDojo Wall</p>
+        <h3>Welcome <%= session[:user]["first_name"] %></h3>
+        <a href='/'>Log Out</a>
+    </div>
+    <div class='main'>
+        <% if flash[:msg_error] %>
+            <% flash[:msg_error].each do |error| %>
+                <p style='color: red;'><%= error %></p>
+            <% end %>
+        <% end %>
+        <h2>Post a Message</h2>
+        <form action='/messages' method='post'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <textarea name='message[content]' id='content'></textarea>
+            <input type='submit' value='Post a Message'>
+        </form>
+        <% @messages.each do |message| %>
+            <h4><%= message.user.first_name %> <%= message.user.last_name %> - <%= message.created_at %></h4>
+            <p><%= message.content %></p>
+            <h3>Comments</h3>
+            <% @comments.each do |comment| %>
+                <% if comment.message.id == message.id %>
+                    <h4><%= comment.user.first_name %> <%= comment.user.last_name %> <%= comment.created_at %></h4>
+                    <p><%= comment.content %></p>
+                <% end %>
+            <% end %>
+            <% if flash[:comment_error] %>
+                <% flash[:comment_error].each do |error| %>
+                    <p style='color: red;'><%= error %></p>
+                <% end %>
+            <% end %>
+            <form action='/comments' method='post'>
+                <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+                <input type='hidden' name='comment[message_id]' id='message_id' value='<%= message.id %>'>
+                <textarea name='comment[content]' id='content'></textarea>
+                <input type='submit' value='Post a Comment'>
+            </form>
+        <% end %>
+    </div>
+</body>

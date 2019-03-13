@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        for (var i = 1; i <= 151; i++) {
+          $('.pokemon').append('<img id="' + i + '" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + i + '.png">')
+        }
+        $(document).on('click', 'img', function() {
+          var temp = $(this).attr('id')
+          $.get('https://pokeapi.co/api/v2/pokemon/' + temp + '/', function(res) {
+            console.log(res)
+            var html_str = ''
+            html_str += '<h2>' + res.species.name + '</h2>'
+            html_str += '<img src="' + $('#' + temp).attr('src') + '">'
+            html_str += '<h3>Types</h3>'
+            html_str += '<ul>'
+            for (var i = 0; i < res.types.length; i++) {
+              html_str += '<li>' + res.types[i].type.name + '</li>'
+            }
+            html_str += '</ul>'
+            html_str += '<h3>Height</h3>'
+            html_str += '<h3>' + res.height + '</h3>'
+            html_str += '<h3>Weight</h3>'
+            html_str += '<h3>' + res.weight + '</h3>'
+            $('.pokedex').html(html_str);
+          }, 'json')
+        })
+      })
+    </script>
+    <style>
+      .pokemon {
+        display: inline-block;
+        width: 900px;
+      }
+      .pokedex {
+        display: inline-block;
+        vertical-align: top;
+        width: 200px;
+        height: 600px;
+        border: 5px solid red;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='pokemon'></div>
+    <div class='pokedex'></div>
+  </body>
+</html>

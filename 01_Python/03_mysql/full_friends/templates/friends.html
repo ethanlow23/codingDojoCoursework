@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2>Friends:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Age</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in session['friends'] %}
+                    <tr>        
+                        <td>{{ x['name'] }}</td>
+                        <td>{{ x['age'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action='/friends' method='post'>
+            <h2>Add a friend:</h2>
+            <p>Name</p>
+            <input type='text' name='name'>
+            <p>Age</p>
+            <input type='text' name='age'>
+            <button>Submit</button>
+        </form>
+    </body>
+</html>

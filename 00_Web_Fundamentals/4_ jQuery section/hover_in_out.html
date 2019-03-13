@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script>
+		$(document).ready(function() {
+			$('img').hover(function() {
+				var temp = $(this).attr('src')
+				$(this).attr('src', $(this).attr('alt-src'))
+				$(this).attr('alt-src', temp)
+			}, function() {
+				var temp = $(this).attr('src')
+				$(this).attr('src', $(this).attr('alt-src'))
+				$(this).attr('alt-src', temp)
+			})
+		})
+	</script>
+	<style>
+		img {
+			width: auto;
+			height: auto;
+			max-width: 200px;
+			max-height: 200px;
+			display: inline-block;
+			margin-right: 50px;
+		}
+		div {
+			width: 200px;
+			display: inline-block;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.mlb {
+			margin-right: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class='nba'>
+		<img src='https://espntheundefeated.files.wordpress.com/2017/05/nba-logo.png' alt-src='http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/gsw.png'>
+	</div>
+	<div class='nfl'>
+		<img src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/National_Football_League_logo.svg/1200px-National_Football_League_logo.svg.png' alt-src='http://prod.static.49ers.clubs.nfl.com/nfl-assets/img/gbl-ico-team/SF/logos/home/large.png'>
+	</div>
+	<div class='mlb'>
+		<img src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Major_League_Baseball_logo.svg/1200px-Major_League_Baseball_logo.svg.png' alt-src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/San_Francisco_Giants_Logo.svg/1200px-San_Francisco_Giants_Logo.svg.png'>
+	</div>
+	<div class='ufc'>
+		<img src='https://media.ufc.tv/generated_images_sorted/Event/fight-night-utica-2018/fight-night-utica-2018_649237_EventFeature.jpg' alt-src='https://cdn.images.express.co.uk/img/dynamic/167/590x/UFC-News-Conor-McGregor-Dana-White-Nate-Diaz-923765.jpg'>
+	</div>
+</body>
+</html>

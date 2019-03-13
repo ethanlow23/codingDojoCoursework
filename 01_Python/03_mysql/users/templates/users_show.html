@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h2>User {{ users[0]['id'] }}</h2>
+        {% for x in users %}
+            <p>Full Name: {{ x['first_name'] }} {{ x['last_name'] }}</p>
+            <p>Email: {{ x['email'] }}</p>
+            <p>Created at: {{ x['created_at'] }}</p>
+        {% endfor %}
+        <p><a href='http://localhost:5000/users/{{ users[0]["id"] }}/edit'>Edit</a> | <a href='http://localhost:5000/users/{{ users[0]["id"] }}/destroy'>Delete</a></p>
+    </body>
+</html>

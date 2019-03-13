@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <style>
+        .header h3, a {
+            display: inline-block;
+        }
+        .body_left, .body_right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .body_left {
+            width: 600px;
+        }
+        .body_right {
+            width: 300px;
+        }
+    </style>
+    <body>
+        <div class='header'>
+            <h3>Welcome, {{request.session.first_name}} {{request.session.last_name}}</h3>
+            <a href='/add'>Add Book and Review</a>
+            <a href='/'>Logout</a>
+        </div>
+        <div class='body_left'>
+            <h3>Recent Book Reviews:</h3>
+                {% for book in books %}
+                    <a href='/books/{{book.id}}'>{{book.title}}</a>
+                    <p>Rating: {{book.rating}}</p>
+                    <p><a href='/users/{{book.reviews.first.user.id}}'>{{book.reviews.first.user.first_name}}</a> says: {{book.reviews.first.content}}</p>
+                    <p style='font-style: italic'>posted on: {{book.reviews.first.created_at}}</p>
+                {% endfor %}
+        </div>
+        <div class='body_right'>
+            <h3>Other Books with Reviews:</h3>
+            <div style='overflow: scroll'>
+                {% for book in books %}
+                    <p><a href='/books/{{book.id}}'>{{book.title}}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

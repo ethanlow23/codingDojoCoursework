@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <tilte></tilte>
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='dojo_survey.css') }}">
+    </head>
+    <body>
+        <div id='wrapper'>
+            <form action='/result' method='post'>
+                <div>
+                    <p>your name</p>
+                    <input type='text' name='name'>
+                </div>
+                <div>
+                    <p>location</p>
+                    <select name='location'>
+                        <option>San Jose</option>
+                    </select>
+                </div>
+                <div>
+                <p>language</p>
+                    <select name='language'>
+                        <option>Python</option>
+                        <option>Chinese</option>
+                    </select>
+                </div>
+                <p>comments (optional)</p>
+                <textarea name='description'></textarea>
+                <button>button</button>
+            </form>
+        </div>
+    </body>
+</html>

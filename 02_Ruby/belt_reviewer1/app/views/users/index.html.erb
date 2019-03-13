@@ -1,0 +1,32 @@
+<h3>Welcome!</h3>
+<h4>Register</h4>
+<form action="/register" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="first_name">First Name</label>
+    <input type="text" name="user[first_name]" id="first_name">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="user[last_name]" id="last_name">
+    <label for="first_name">Email</label>
+    <input type="text" name="user[email]" id="email">
+    <label for="city">Location</label>
+    <input type="text" name="user[city]" id="city">
+    <select name="user[state]">
+        <option>WA</option>
+        <option>CA</option>
+        <option>NY</option>
+    </select>
+    <label for="password">Password</label>
+    <input type="password" name="user[password]" id="password">
+    <label for="confirmation">Confirm PW</label>
+    <input type="password" name="user[password_confirmation]" id="confirmation">
+    <input type="submit" value="Register">
+</form>
+<h4>Login</h4>
+<form action="/login" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="email">Email</label>
+    <input type="text" name="user[email]" id="email">
+    <label for="password">Password</label>
+    <input type="password" name="user[password]" id="password">
+    <input type="submit" value="Login">
+</form>

@@ -1,0 +1,53 @@
+<html>
+<meta charset="UTF-8">
+<script>
+function Ninja(name){
+    this.name = name;
+    this.health = 100;
+    var speed = 3;
+    var strength = 3;
+
+    this.sayName = function(){
+        console.log("My ninja name is " + this.name);
+    }
+    this.showStats = function(){
+        console.log("Name: " + this.name);
+        console.log("Strength: " + strength);
+        console.log("Speed: " + speed);
+        console.log("Health: " + this.health);
+    }
+    this.drinkSake = function(){
+        this.health += 10;
+    }
+    this.punch = function(ninja){
+        if(ninja instanceof Ninja){
+            ninja.health -= 5;
+            console.log(ninja.name + " was punched by " + this.name + " and lost 5 Health!");
+        }else{
+            console.log("Not a ninja...punch a ninja");
+        }
+    }
+    this.kick = function(ninja){
+        if(ninja instanceof Ninja){
+            health_lost = 15 * strength;
+            ninja.health -= health_lost;
+            console.log(ninja.name + " was kicked by " + this.name + " and lost " + health_lost + " Health!");
+        }else{
+            console.log("Not a ninja...punch a ninja");
+        }
+    }
+}
+var blueNinja = new Ninja("Goemon");
+var redNinja = new Ninja("Bill Gates");
+redNinja.punch(blueNinja);
+// -> "Goemon was punched by Bill Gates and lost 5 Health!"
+blueNinja.kick(redNinja);
+// -> "Bill Gates was kicked by Goemon and lost 15 Health!"
+// In this case, redNinja Bill Gates lost 15 health because blueNinja Goemon has 1 point of strength
+function Food(){
+    this.food = "food";
+}
+var food = new Food;
+blueNinja.kick(food);
+</script>
+</html>

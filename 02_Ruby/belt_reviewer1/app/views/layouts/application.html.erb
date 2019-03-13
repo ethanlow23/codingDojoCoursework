@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BeltReviewer</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<style>
+  .table_head {
+    font-weight: bold;
+  }
+  td {
+    border: 2px solid black;
+    width: 120px;
+    height: 30px;
+  }
+</style>
+<body>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <h3 style="color: red;"><%= e %></h3>
+    <% end %>
+  <% end %>
+  <% if current_user %>
+    <a href="/logout" data-method="delete">Logout</a>
+  <% end %> 
+
+<%= yield %>
+
+</body>
+</html>

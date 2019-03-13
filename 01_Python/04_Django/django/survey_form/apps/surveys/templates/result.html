@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>You have submitted this form {{ request.session.count }} times</p>
+        <h3>Submitted information</h3>
+        <p>Your name: {{ request.session.name }}</p>
+        <p>Location: {{ request.session.location }}</p>
+        <p>Language: {{ request.session.language }}</p>
+        <p>Comment: {{ request.session.comment }}</p>
+        <form action='/back' method='post'>
+            {% csrf_token %}
+            <input type='submit' value='Go back'>
+        </form>
+    </body>
+</html>

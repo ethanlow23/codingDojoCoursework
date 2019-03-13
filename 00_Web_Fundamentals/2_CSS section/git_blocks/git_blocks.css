@@ -1,0 +1,104 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper {
+	background-color: #DDDFD4;
+	width: 970px;
+	padding: 10px;
+}
+
+.header, .bottom {
+	background-color: #38B0AD;
+	margin: 10px;
+	padding: 20px;
+}
+
+.bottom {
+	text-align: center;
+}
+
+h2, h3 {
+	font-size: 20px;
+	padding: 5px;
+}
+
+p, .menu a {
+	font-size: 14px;
+	padding: 10px;
+}
+
+span {
+	color: #49D1C1;
+}
+
+.header img, .header h1 {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header img {
+	max-height: 40px;
+	max-width: 40px;
+}
+
+.header a {
+	color: white;
+	padding: 5px;
+}
+
+.menu {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 180px;
+}
+
+.body {
+	background-color: #FBE691;
+	padding: 10px;
+	color: white;
+}
+
+.main_left, .main_top div, .main_middle div, .main_bottom div {
+	background-color: #153F43;
+	padding: 5px;
+}
+
+.main_left {
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+	margin: 10px;
+}
+
+.main_right {
+	display: inline-block;
+	width: 650px;
+	margin: 0px;
+}
+
+.main_top, .main_middle, .main_bottom {
+	margin: 5px;
+}
+
+.main_top div {
+	display: inline-block;
+	vertical-align: top;
+	width: 180px;
+	height: 150px;
+}
+
+.main_middle div {
+	display: inline-block;
+	vertical-align: top;
+	width: 285px;
+}
+
+.main_top div, .main_middle div, .main_bottom div {
+	margin: 10px;
+}
+
+.bottom p, .bottom a {
+	display: inline-block;
+}

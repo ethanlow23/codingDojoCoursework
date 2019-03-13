@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action='/modify_word' method='post'>
+            {% csrf_token %}
+            <h2>Add a new word</h2>
+            <input type='text' name='word'>
+            <p>Choose color</p>
+            <p><input type='radio' name='color' value='red'>red</p>
+            <p><input type='radio' name='color' value='green'>green</p>
+            <p><input type='radio' name='color' value='blue'>blue</p>
+            <p><input type='checkbox' name='font' value='bold'>show in BIG fonts</p>
+            <input type='submit' value='Add to session'>
+        </form>
+        {%for x in request.session.word %}
+            <p style='color:{{color}}; font-weight:{{request.session.bold}}'>{{x}}</p>
+        {% endfor %}
+    </body>
+</html>

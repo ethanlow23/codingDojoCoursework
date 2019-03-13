@@ -1,0 +1,22 @@
+cd Desktop
+
+md test
+
+cd test
+
+copy NUL index.html styles.css commands.txt
+
+copy index.html index2.html
+
+del styles.css
+
+cd Desktop
+
+md destination
+
+move test/index2.html destination/index.html
+
+dir test destination
+
+rd /s destination
+

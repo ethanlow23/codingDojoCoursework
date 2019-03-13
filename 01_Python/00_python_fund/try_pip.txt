@@ -1,0 +1,15 @@
+pip install Django==1.11.9 --> install command to get Django package version 1.11.9
+
+pip list --> list of the packages installed
+
+pip install Django==1.11.9 --> Django already installed previously
+
+pip freeze --> list of packages with the requirements
+
+cd Desktop, pip freeze > requirements.txt, dir --> pushed contents of freeze into text file requirments on the desktop
+
+pip uninstall Django --> uninstall command on Django package previously installed
+
+pip show Django --> Django uninstalled so it shows nothing
+
+pip search Flask --> search for packages containing the word Flask

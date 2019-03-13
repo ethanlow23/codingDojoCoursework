@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var socket = io();
+                socket.on('current_users', function(data){
+                    for(var i=0; i<data.current_users.length; i++){
+                        $('body').append('<div id=' + data.current_users[i].id + '><p>' + data.current_users[i].username + '</p></div>');
+                    };
+                });
+                var username = prompt('Your Username');
+                socket.emit('got_a_new_user', {username});
+                socket.on('new_user', function(data){
+                    $('body').append('<div id=' + data.new_user.id + '><p>' + data.new_user.username + '</p></div>');
+                });
+                socket.on('disconnect_user', function(data){
+                    $('#' + data.id).remove();
+                });
+            });
+        </script>
+    </head>
+    <meta charset="UTF-8">
+    <body></body>
+</html>
